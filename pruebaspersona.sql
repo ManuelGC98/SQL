@@ -22,7 +22,3 @@ update persona set per_fna = '01/01/2008' where per_cod >10000;
 select distinct per_fna from persona;
 
 select * from persona order by per_fna asc;
-
-
-create index INDICE
-on 
