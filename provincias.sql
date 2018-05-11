@@ -9,11 +9,14 @@ primary key (PRO_COD));
 
 create table MUN(
 MUN_COD number(3) not null,
-MUN_DES varchar2(50) null,
+MUN_DES varchar2(50) not null,
 MUN_HAB number(10) null,
 MUN_PRO number(3) null,
 primary key (MUN_COD),
 constraint FK_MUN_PRO foreign key (MUN_PRO) references PRO(PRO_COD));
+
+
+--select 'INSERT INTO PRO(PRO_COD, PRO_DES) VALUES(' || PRV_COD || ',''' || PRV_NOM || ''');'  from p_prv where prv_cod <> 99
 
 
 INSERT INTO PRO(PRO_COD, PRO_DES) VALUES(1,'ARAVA/ALAVA');
@@ -69,6 +72,8 @@ INSERT INTO PRO(PRO_COD, PRO_DES) VALUES(50,'ZARAGOZA');
 INSERT INTO PRO(PRO_COD, PRO_DES) VALUES(51,'CEUTA');
 INSERT INTO PRO(PRO_COD, PRO_DES) VALUES(52,'MELILLA');
 
+
+--select 'INSERT INTO MUN(MUN_PRO, MUN_COD, MUN_DES, MUN_HAB) VALUES(' || MUN_PRV || ',' || MUN_COD || ',''' || MUN_NOM || ''', 1);'  from p_mun where mun_prv in (14, 41) order by mun_prv, mun_cod
 
 
 INSERT INTO MUN(MUN_COD, MUN_DES, MUN_HAB, MUN_PRO) VALUES(1,'AGUADULCE', 1,41);
