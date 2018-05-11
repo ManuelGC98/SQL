@@ -261,4 +261,10 @@ INSERT INTO MUN(MUN_PRO, MUN_COD, MUN_DES, MUN_HAB) VALUES(41,903,'CUERVO DE SEV
 --------------------------
 
 
-select * from mun where mun_des like '%CIJA';
+select * from mun where mun_des like 'ECIJA';
+
+update mun set mun_hab = mun_hab * 0.1 where mun_pro = 41 and mun_cod = 39;
+
+update mun set mun_hab = (select mun_hab from mun where mun_pro = 41 and mun_cod = 39) where mun_des like 'A%';
+
+select * from mun where mun_des like 'A%';
